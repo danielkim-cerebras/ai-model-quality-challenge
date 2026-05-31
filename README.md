@@ -32,7 +32,8 @@ a customer/PM who needs a **go/no-go** signal, and an internal engineer who need
 Run contract: document your own install and launch steps in your README — a reviewer
 will clone and follow them. Your choice of framework and packaging. **Also deploy it:**
 ship a publicly reachable URL (a free host is fine — Vercel, Netlify, Cloudflare Pages,
-GitHub Pages, …) so a reviewer can click through without cloning. See
+GitHub Pages, …) so a reviewer can click through without cloning, and let them **upload
+the `.xlsx` files to render the views live** (we'll test it with a new model). See
 [`Task1_Performance.md`](./Task1_Performance.md#deploying-for-free).
 
 ### Task 2 — Benchmark Compression for a Real Customer

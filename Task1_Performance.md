@@ -22,7 +22,8 @@ Build a UI that lets the two audiences above answer their questions from the shi
 
 - **Documented launch**. Bringing up the UI should be straightforward from a clean clone. Document your install and launch steps in your README — a reviewer will follow them.
 - **Live deployed frontend**. In addition to the source, ship a **publicly reachable URL** where the UI is already running, so a reviewer can click through it without cloning or installing anything. A free host is expected — see [Deploying for free](#deploying-for-free). The deployed build must serve the same data as the repo; don't ship a stripped-down demo.
-- **Defensible for a twelfth model**. We will mentally substitute a `Model L` (or drop in a new `Model_L_profile_<N>/Model L profile <N>.xlsx`) and see if your design still works. Hard-coded model lists or hand-tuned views that only work for the shipped letters will be marked down.
+- **Upload to render**. The deployed UI must let a reviewer **upload the `.xlsx` files** — one model's set or all of them at once — and see the views render **live, with no rebuild and no code changes**. Parsing happens in the app (client- or server-side); the `Model_<X>_profile_<N>/...xlsx` naming is the only contract you can rely on. Loading the shipped data by default is fine, but upload must be a first-class path, not a dev-only script.
+- **Defensible for a twelfth model**. We will exercise the upload above with a brand-new `Model L` (`Model_L_profile_<N>/Model L profile <N>.xlsx`) and expect it to appear and render correctly with **zero code edits**. Hard-coded model lists or hand-tuned views that only work for the shipped letters will be marked down.
 
 
 ## Forbidden trivial baselines
@@ -32,6 +33,7 @@ These will not pass the rubric. We will check.
 - Static HTML dump of the `.xlsx` or a single big table with no audience differentiation.
 - A UI that shows every column to every audience and calls it "configurable."
 - Hard-coded views or copy that only work for the specific models in `perf_data.zip`.
+- "Upload" that really means re-running a build script or editing a config to bake the data in — the deployed UI must ingest uploaded `.xlsx` and render without a rebuild.
 
 ## What to submit
 
