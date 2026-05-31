@@ -67,7 +67,8 @@ Your submission **must** include:
    - For Task 2, pin the `evalscope` commit SHA you developed against in your fork's README.
 
 2. **A live URL for the Task 1 UI** — **required**.
-   - A publicly reachable link to your deployed frontend, running the shipped data.
+   - A publicly reachable link to your deployed frontend where a reviewer can **upload a
+     perf sweep and get the views** (the shipped sweep may be pre-loaded as a sample).
    - Put it at the top of your README **and paste it into the submission form above**.
    - A free host is expected — see
      [`Task1_Performance.md`](./Task1_Performance.md#deploying-for-free) for options.

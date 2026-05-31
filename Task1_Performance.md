@@ -16,14 +16,18 @@ You decide how to serve both audiences. One UI with two views, two separate UIs,
 
 ## The challenge
 
-Build a UI that lets the two audiences above answer their questions from the shipped data. You decide what data to provide and what UI to use
+Build a **tool, not a one-off page**: a UI where anyone can **upload a set of perf-sweep
+`.xlsx` files** — the shipped data, or a similar sweep for a model we've never seen — and
+immediately get the two audience views below. The sweeps we ship are a sample, not the
+payload; treat the file/column shape as the contract and build something that renders any
+conforming sweep. You decide what to surface for each audience and what the UI looks like.
 
 ## Hard requirements
 
 - **Documented launch**. Bringing up the UI should be straightforward from a clean clone. Document your install and launch steps in your README — a reviewer will follow them.
-- **Live deployed frontend**. In addition to the source, ship a **publicly reachable URL** where the UI is already running, so a reviewer can click through it without cloning or installing anything. A free host is expected — see [Deploying for free](#deploying-for-free). The deployed build must serve the same data as the repo; don't ship a stripped-down demo.
-- **Upload to render**. The deployed UI must let a reviewer **upload the `.xlsx` files** — one model's set or all of them at once — and see the views render **live, with no rebuild and no code changes**. Parsing happens in the app (client- or server-side); the `Model_<X>_profile_<N>/...xlsx` naming is the only contract you can rely on. Loading the shipped data by default is fine, but upload must be a first-class path, not a dev-only script.
-- **Defensible for a twelfth model**. We will exercise the upload above with a brand-new `Model L` (`Model_L_profile_<N>/Model L profile <N>.xlsx`) and expect it to appear and render correctly with **zero code edits**. Hard-coded model lists or hand-tuned views that only work for the shipped letters will be marked down.
+- **Live deployed frontend**. In addition to the source, ship a **publicly reachable URL** where the UI is already running, so a reviewer can click through it without cloning or installing anything. A free host is expected — see [Deploying for free](#deploying-for-free).
+- **Upload to render**. Upload is the core flow, not an add-on. A reviewer must be able to **upload a set of perf-sweep `.xlsx` files** — one model's set or several at once — and see the views render **live, with no rebuild and no code changes**. Parsing happens in the app (client- or server-side); the `Model_<X>_profile_<N>/...xlsx` file-and-column shape is the only contract you can rely on. Pre-loading the shipped sweep as a sample is fine, but the deployed UI must accept fresh uploads as a first-class path, not a dev-only script.
+- **Defensible for a twelfth model**. We will exercise the upload with a brand-new `Model L` (`Model_L_profile_<N>/Model L profile <N>.xlsx`) — a sweep that isn't in the repo — and expect it to render correctly with **zero code edits**. Hard-coded model lists or hand-tuned views that only work for the shipped letters will be marked down.
 
 
 ## Forbidden trivial baselines
@@ -46,10 +50,10 @@ README — a reviewer will clone and follow them. Your choice of framework and p
 
 ### 2. Live URL
 
-A **publicly reachable link** to the deployed UI, running the shipped data. Put it at the
-top of your README **and paste it into the submission form** (link in the root README). A
-reviewer should be able to open it and use it without cloning or installing anything.
-Hosting on a free tier is fine and expected.
+A **publicly reachable link** to the deployed UI. Put it at the top of your README **and
+paste it into the submission form** (link in the root README). A reviewer should be able to
+open it, **upload a perf sweep, and get the views** — no cloning or installing. Hosting on
+a free tier is fine and expected.
 
 #### Deploying for free
 
